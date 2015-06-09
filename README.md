@@ -19,13 +19,14 @@
 
 
 ### 目录结构
+at ${TOP_PATH}
 
-* ${TOP_PATH}/
-* ${TOP_PATH}/boshsrc
-* ${TOP_PATH}/chapter1/boot.asm
-* ${TOP_PATH}/chapter2/boot.asm
-* ${TOP_PATH}/chapter1/boot.asm
-* ...
-* ${TOP_PATH}/note/note_1_env.sh
-* ${TOP_PATH}/note/note_2_first_os.sh
+* ./
+* ./boshsrc
+* ./chapter1/boot.asm
+* ./chapter2/boot.asm
+* ./chapter1/boot.asm
+* ./...
+* ./note/note_1_prepare_env.md
+* ./note/note_2_first_os.md
 * ...
