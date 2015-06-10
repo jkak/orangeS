@@ -127,3 +127,70 @@ now the os running success! screen like this:
 ![first_os_logo_qemu](https://github.com/jungle85gopy/orangeS/blob/master/pic/first_OS_qemu.png)
 
 
+## some tips for chapter 1 and 2
+
+### about dd: copy and convert file
+
+```shell
+# example: back up MBR
+sudo dd if=/dev/sda of=~/mbr.backup bs=512 count=1
+
+# recovery MBR
+sudo dd if=~/mbr.backup of=/dev/sda bs=512 count=1
+
+# recovery formatting table of MBR
+sudo dd if=~/mbr.backup of=/dev/sda bs=1 count=66 seek=446
+
+### vim binary file
+vim -b mbr.backup
+:%!xxd      # input at cmd mode, the data show in hex style
+# now you can modiy the binary data
+:%!xxd -r   # return to binary mode from hex.
+:wq
+```
+
+### vim -b  vs  hexdump
+
+```shell
+
+vim -b boot.bin
+:%!xxd
+# 0000000: 8cc8 8ed8 8ec0 e802 00eb feb8 1e7c 89c5  .............|..
+# 0000010: b910 00b8 0113 bb0c 00b2 00cd 10c3 4865  ..............He
+# 0000020: 6c6c 6f2c 204f 5320 776f 726c 6421 0000  llo, OS world!..
+# ...
+# 00001f0: 0000 0000 0000 0000 0000 0000 0000 55aa  ..............U.
+
+# the last 2 lines of hexdump
+hexdump boot.bin 
+# 0000000 c88c d88e c08e 02e8 eb00 b8fe 7c1e c589
+# ...
+# 00001f0 0000 0000 0000 0000 0000 0000 0000 aa55
+# 0000200
+```
+the end flag of MBR is 0X55AA. 
+sector[510] == 0X55.    # low  byte
+sector[511] == 0XAA,    # high byte
+also see the 'Hello,', 'world' in boot.bin under **vim**. WORD: '6f2c' -> 'o,'; '776f' -> 'wo',
+
+so, under the vim -b and xxd cmd, the binary WORD data is sequenced by location. but the high byte adead the lower byte.
+
+```shell
+# if you want hexdump sequnce like vim -b. use option below:
+hexdump boot.bin -e '8/1 "%02X " "\t" "\n"'
+
+```
+
+### Disassembler(反汇编器)
+from binary to asm
+
+```shell
+ndisasm -o 0x7c00 boot.bin >> disboot.asm
+# from boot.asm --> boot.bin  --> disboot.asm
+# learn boot.asm from disboot
+
+
+```
+
+
+
