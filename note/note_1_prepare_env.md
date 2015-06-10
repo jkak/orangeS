@@ -90,12 +90,37 @@ sudo make install
 
 ## peter-bochs, a more useful tools for debug OS.
 # see:  http://code.google.com/p/peter-bochs/downloads/list
-curl http://peter-bochs.googlecode.com/files/peter-bochs-debugger20130922.jar
-mv peter-bochs-debugger20130922.jar  peter-bochs-debugger.jar
+curl -O http://peter-bochs.googlecode.com/files/peter-bochs-debugger20130922.jar
 
+java -jar peter-bochs-debugger20111224.jar   
+# except UnsupportedClassVersionError: com/peterbochs/PeterBochsDebugger
+# because my java version is too old("1.6.0_32"), so use lower version
+
+
+curl -O http://peter-bochs.googlecode.com/files/java -jar peter-bochs-debugger20111224.jar   
 # use tips
-java -jar peter-bochs-debugger.jar -v
-java -jar peter-bochs-debugger.jar  bochs  -f  bochsrc
+java -jar peter-bochs-debugger20111224.jar   
+java -jar peter-bochs-debugger20111224.jar   bochs -f bochsrc
+
+
+
+## add qemu 
+
+apt-get install qemu
+# after install, I find the version of qemu is too old. only 1.1.2
+# so remove it. and get the source code.
+
+curl -O http://wiki.qemu-project.org/download/qemu-2.3.0.tar.bz2
+tar -jxvf qemu-2.3.0.tar.bz2
+cd qemu-2.3.0
+./configure  
+make
+sudo make install
+# also, you can refer   
+#   http://en.wikibooks.org/wiki/QEMU/Linux
+
+# bin path
+/usr/local/bin/qemu*
 
 ## finished env at 2015.06
 
