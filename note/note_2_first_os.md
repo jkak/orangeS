@@ -81,9 +81,12 @@ ls -lh a.out
 
 # write boot.bin to the begin 512 Byte at a.img
 dd if=boot.bin of=a.img bs=512 count=1 conv=notrunc
+```
 
+### run and debug os with bochs
 
-# run and debug os
+```shell
+
 bochs  -f bochsrc
 
 # Please choose one: [6]    # <ENTER>
@@ -101,9 +104,26 @@ c   # ENTER
 
 now the os running success! screen like this:
 
-![first_os_logo](https://github.com/jungle85gopy/orangeS/blob/master/pic/first_OS.png)
+![first_os_logo_bochs](https://github.com/jungle85gopy/orangeS/blob/master/pic/first_OS_bochs.png)
 
+### run first os on qemu
 
+```shell
 
+# create blank floppy disk image
+qemu-img  create -f qcow2 test.img 1474560
+# Formatting 'test.img', fmt=qcow2 size=1474560 encryption=off cluster_size=65536 lazy_refcounts=off refcount_bits=16
+
+# use boot.bin to rewrite the first 512 byte of test.img
+dd if=boot.bin of=test.img bs=512 count=1 conv=notrunc
+
+# run it
+qemu-system-i386 -fda test.img
+
+```
+
+now the os running success! screen like this:
+
+![first_os_logo_qemu](https://github.com/jungle85gopy/orangeS/blob/master/pic/first_OS_qemu.png)
 
 
