@@ -1,67 +1,15 @@
 
-## note 2
+# chapter 1: smallest OS
+
 first os within 20 lines.
+code file: c1/boot.asm
 
-### asm
-
-```shell
-
-mkdir chapter1
-vi chapter1/boot.asm
-# code as book
-
-
-## gen bochs configure file
-vi bochsrc
-# code as below
-```
-
-### bochsrc file content:
-
-
-```
-
-###################################################
-#
-# Configuration file for Bochs 
-# with NEW Style
-# 2015.06.09
-#
-###################################################
-
-# how much memory the emulated machine will have
-megs: 32
-
-# filename of ROM images
-romimage:    file=$BXSHARE/BIOS-bochs-latest
-vgaromimage: file=$BXSHARE/VGABIOS-lgpl-latest
-
-# what disk images will be used
-floppya: 1_44=a.img, status=inserted
-
-# choose the boot disk.
-boot: floppy
-
-# where do we send log messages?
-log: log.txt
-
-# disable the mouse
-mouse: enabled=0
-
-# enable key mapping, using US layout as default.
-keyboard: type=mf, serial_delay=200, paste_delay=100000
-keyboard: keymap=$BXSHARE/keymaps/x11-pc-us.map
-keyboard: user_shortcut=ctrl-alt-del
-
-```
-
-### compiling the asm to floppy image
-
+## compiling the asm to floppy image
 
 ```shell
 
 # compile to binary
-nasm -f bin chapter1/boot.asm  -o boot.bin
+nasm -f bin c1/boot.asm  -o boot.bin
 
 # check the binary file
 hexdump boot.bin
@@ -74,19 +22,17 @@ fd          # floppy
 [1.44MB]    # --> enter
 [a.image]   # --> enter, image file name
 
-
 ls -l  a.out
 # -rw-r----- 1 jiang jiang 1474560 6月   9 22:43 a.img
-ls -lh a.out
 
 # write boot.bin to the begin 512 Byte at a.img
 dd if=boot.bin of=a.img bs=512 count=1 conv=notrunc
+
 ```
 
-### run and debug os with bochs
+## run and debug os with bochs
 
 ```shell
-
 bochs  -f bochsrc
 
 # Please choose one: [6]    # <ENTER>
@@ -99,14 +45,12 @@ bochs  -f bochsrc
     # ENTER
 c   # ENTER
 
-
 ```
-
 now the os running success! screen like this:
 
-![first_os_logo_bochs](https://github.com/jungle85gopy/orangeS/blob/master/pic/first_OS_bochs.png)
+tss ! [first_os_logo_bochs](https://github.com/jungle85gopy/orangeS/blob/master/c1/first_OS_bochs.png)
 
-### run first os on qemu
+## run first os on qemu
 
 ```shell
 
@@ -124,12 +68,12 @@ qemu-system-i386 -fda test.img
 
 now the os running success! screen like this:
 
-![first_os_logo_qemu](https://github.com/jungle85gopy/orangeS/blob/master/pic/first_OS_qemu.png)
+tss ! [first_os_logo_qemu](https://github.com/jungle85gopy/orangeS/blob/master/c1/first_OS_qemu.png)
 
 
-## some tips for chapter 1 and 2
+# some tips for chapter 1 and 2
 
-### about dd: copy and convert file
+## about dd: copy and convert file
 
 ```shell
 # example: back up MBR
@@ -145,11 +89,12 @@ sudo dd if=~/mbr.backup of=/dev/sda bs=1 count=66 seek=446
 vim -b mbr.backup
 :%!xxd      # input at cmd mode, the data show in hex style
 # now you can modiy the binary data
+
 :%!xxd -r   # return to binary mode from hex.
 :wq
 ```
 
-### vim -b  vs  hexdump
+## vim -b vs hexdump
 
 ```shell
 
@@ -168,12 +113,12 @@ hexdump boot.bin
 # 00001f0 0000 0000 0000 0000 0000 0000 0000 aa55
 # 0000200
 ```
-the end flag of MBR is 0X55AA. 
+the end flag of MBR is 0x55AAH. 
 sector[510] == 0X55.    # low  byte
 sector[511] == 0XAA,    # high byte
-also see the 'Hello,', 'world' in boot.bin under **vim**. WORD: '6f2c' -> 'o,'; '776f' -> 'wo',
+also see the 'Hello,', 'world' in boot.bin under vim. WORD: '6f2c' -> 'o,'; '776f' -> 'wo',
 
-so, under the vim -b and xxd cmd, the binary WORD data is sequenced by location. but the high byte adead the lower byte.
+so, under the vim -b and xxd cmd, the binary WORD data is sequenced by location. but the high byte ahead the lower byte.
 
 ```shell
 # if you want hexdump sequnce like vim -b. use option below:
@@ -181,7 +126,7 @@ hexdump boot.bin -e '8/1 "%02X " "\t" "\n"'
 
 ```
 
-### Disassembler(反汇编器)
+## Disassembler(反汇编器)
 from binary to asm
 
 ```shell
@@ -191,6 +136,5 @@ ndisasm -o 0x7c00 boot.bin >> disboot.asm
 
 
 ```
-
 
 
