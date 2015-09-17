@@ -48,7 +48,7 @@ c   # ENTER
 ```
 now the os running success! screen like this:
 
-tss ! [first_os_logo_bochs](https://github.com/jungle85gopy/orangeS/blob/master/c1/first_OS_bochs.png)
+![first_os_logo_bochs](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c1/first_OS_bochs.png)
 
 ## run first os on qemu
 
@@ -68,7 +68,7 @@ qemu-system-i386 -fda test.img
 
 now the os running success! screen like this:
 
-tss ! [first_os_logo_qemu](https://github.com/jungle85gopy/orangeS/blob/master/c1/first_OS_qemu.png)
+![first_os_logo_qemu](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c1/first_OS_qemu.png)
 
 
 # some tips for chapter 1 and 2
