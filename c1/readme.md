@@ -58,7 +58,8 @@ now the os running success! screen like this:
 
 # create blank floppy disk image
 qemu-img  create -f qcow2 test.img 1474560
-# Formatting 'test.img', fmt=qcow2 size=1474560 encryption=off cluster_size=65536 lazy_refcounts=off refcount_bits=16
+# Formatting 'test.img', fmt=qcow2 size=1474560 encryption=off \
+#    cluster_size=65536 lazy_refcounts=off refcount_bits=16
 
 # use boot.bin to rewrite the first 512 byte of test.img
 dd if=boot.bin of=test.img bs=512 count=1 conv=notrunc
@@ -120,7 +121,8 @@ sector[510] == 0X55.    # low  byte
 sector[511] == 0XAA,    # high byte
 also see the 'Hello,', 'world' in boot.bin under vim. WORD: '6f2c' -> 'o,'; '776f' -> 'wo',
 
-so, under the vim -b and xxd cmd, the binary WORD data is sequenced by location. but the high byte ahead the lower byte.
+so, under the vim -b and xxd cmd, the binary WORD data is sequenced by location. 
+but the high byte ahead the lower byte.
 
 ```shell
 # if you want hexdump sequnce like vim -b. use option below:

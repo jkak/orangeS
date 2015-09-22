@@ -156,7 +156,8 @@ curl -O http://peter-bochs.googlecode.com/files/java -jar peter-bochs-debugger20
 java -jar peter-bochs-debugger20111224.jar   
 # You will see info looks like: 
 # In Linux : java -jar peter-bochs-debugger.jar bochs -f bochxrc.bxrc
-# In windows : java -jar peter-bochs-debugger.jar c:\program files\bochs2.4.3\bochsdbg.exe -q -f bochxrc.bxrc
+# In windows : java -jar peter-bochs-debugger.jar \
+#               c:\program files\bochs2.4.3\bochsdbg.exe -q -f bochxrc.bxrc
 
 # after you debug code, use jar as below:
 java -jar peter-bochs-debugger20111224.jar   bochs -f bochsrc
