@@ -1,5 +1,5 @@
 
-# note 0: build develop env
+# chapter 0: build develop env
 
 ## 1 basic tools
 
@@ -8,10 +8,7 @@ run as below
 ```bash
 #/usr/bin/env bash
 
-### 1 prepare env for study orangeS
-# date 2015.06
-
-### develop tools
+# basic develop tools
 
 # for gcc
 apt-get install build-essential 
@@ -66,6 +63,8 @@ int main(int argc, char* argv[])
 
 ## 2 install bochs 
 
+### 2.1 bochs
+
 run as below
 
 ```shell
@@ -91,34 +90,10 @@ sudo make install
 /usr/local/bin/bochs
 
 # bochs config 
-# skipping... see at next note of first OS
-
-
-## peter-bochs, a more useful tools for debug OS.
-# see:  http://code.google.com/p/peter-bochs/downloads/list
-curl -O http://peter-bochs.googlecode.com/files/peter-bochs-debugger20130922.jar
-
-java -jar peter-bochs-debugger20111224.jar   
-# except UnsupportedClassVersionError: com/peterbochs/PeterBochsDebugger
-# because my java version is too old("1.6.0_32"), so use lower version
-# so lazy to update java.
-
-
-curl -O http://peter-bochs.googlecode.com/files/java -jar peter-bochs-debugger20111224.jar   
-
-# use tips
-java -jar peter-bochs-debugger20111224.jar   
-# You will see info looks like: 
-# In Linux : java -jar peter-bochs-debugger.jar bochs -f bochxrc.bxrc
-In windows : java -jar peter-bochs-debugger.jar c:\program files\bochs2.4.3\bochsdbg.exe -q -f bochxrc.bxrc
-
-# after you debug code, use jar as below:
-java -jar peter-bochs-debugger20111224.jar   bochs -f bochsrc
-
+# as below. 
 ```
 
-
-### 2.1 gen bochs configure file: bochsrc
+### 2.2 gen bochs configure file: bochsrc
 
 vim a file named bochsrc as config for bochs. code as below:
 
@@ -159,17 +134,43 @@ keyboard: user_shortcut=ctrl-alt-del
 
 ```
 
+### 2.3 可选项：peter-bochs
+
+peter-bochs可用于增强调试功能。
+
+```bash
+## peter-bochs, a more useful tools for debug OS.
+# see:  http://code.google.com/p/peter-bochs/downloads/list
+
+curl -O http://peter-bochs.googlecode.com/files/peter-bochs-debugger20130922.jar
+
+java -jar peter-bochs-debugger20111224.jar   
+# except UnsupportedClassVersionError: com/peterbochs/PeterBochsDebugger
+# because my java version is too old("1.6.0_32"), so use lower version
+# so lazy to update java.
+
+# download again 
+curl -O http://peter-bochs.googlecode.com/files/java -jar peter-bochs-debugger20111224.jar   
+
+# use tips
+java -jar peter-bochs-debugger20111224.jar   
+# You will see info looks like: 
+# In Linux : java -jar peter-bochs-debugger.jar bochs -f bochxrc.bxrc
+# In windows : java -jar peter-bochs-debugger.jar c:\program files\bochs2.4.3\bochsdbg.exe -q -f bochxrc.bxrc
+
+# after you debug code, use jar as below:
+java -jar peter-bochs-debugger20111224.jar   bochs -f bochsrc
+```
 
 ## 3 install qemu 
 
 install qemu as below
 
-
 ```bash
 
 # apt-get install qemu
 
-# after install, I find the version of qemu is too old. only 1.1.2
+# after install as above, I find the version of qemu is too old. only 1.1.2
 # so remove it. and get the source code.
 
 curl -O http://wiki.qemu-project.org/download/qemu-2.3.0.tar.bz2
@@ -186,4 +187,5 @@ sudo make install
 
 ## finished env at 2015.06
 ```
+
 

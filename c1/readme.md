@@ -20,7 +20,7 @@ bximage     # --> enter
 1           # create new floppy or hard disk image
 fd          # floppy
 [1.44MB]    # --> enter
-[a.image]   # --> enter, image file name
+[a.im]      # --> enter, image file name
 
 ls -l  a.out
 # -rw-r----- 1 jiang jiang 1474560 6月   9 22:43 a.img
@@ -34,6 +34,8 @@ dd if=boot.bin of=a.img bs=512 count=1 conv=notrunc
 
 ```shell
 bochs  -f bochsrc
+# or
+bochs
 
 # Please choose one: [6]    # <ENTER>
 # 00000000000i[      ] installing x module as the Bochs GUI
