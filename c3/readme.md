@@ -25,7 +25,7 @@ bochs
 # 如此则可看到右侧中间出现一个红色的字母P。
 
 ```
-##  part b: use freedos.img
+##  part b0: use freedos.img
 通过双软驱的形式，使用freedos.img启动软驱A，再从A中运行B中的pmtest.asm。有几件事需要仔细准备。
 
  * 下载FreeDos，并命名为freedos.img
@@ -97,5 +97,42 @@ file pm.img
 ```
 
 
+##  part b1: GDT表
+
+GDT表，及段式线性地址转换示意图。
+
+![c3_1_gdt](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/c3_b1.png)
+
+
+
+##  part b2: 3.2 保护模式进阶，超越1M内存空间
+
+本次在c3/b/pmtest2.asm中实现读写1M以上内存空间。并实现从保护模式返回到实模式。并最终退出程序，返回到DOS界面。
+
+从保护模式回到实模块，中间经过了一个实模式下的16位代码段，该代码段内所有数据段寄存器都指向一个新的Normal数据段。在该段内，关闭PE标志。并立即退出到实模式的REAL_ENTRY标号。
+
+在实模式内，再恢复段寄存器以及SP指针，并关闭A20地址。再退出程序。回到DOS界面。
+
+编译与执行：
+```bash
+# compile
+nasm pmtest2.asm  -o pmtest2.com
+
+# copy to pm.img
+sudo mount -o loop pm.img  /mnt/floppy
+sudo cp pmtest2.com   /mnt/floppy
+sudo umount  /mnt/floppy
+
+# run
+bochs
+```
+在启动的DOS环境中执行，效果如下图。
+```dos
+dir b:
+b:\pmtest2.com
+
+```
+
+![c3_2_exit_pm](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/c3_b2.png)
 
 
