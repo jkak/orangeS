@@ -101,7 +101,7 @@ file pm.img
 
 GDT表，及段式线性地址转换示意图。
 
-![c3_1_gdt](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/c3_b1.png)
+![c3_1_gdt](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/b/c3_b1.png)
 
 
 
@@ -133,7 +133,7 @@ b:\pmtest2.com
 
 ```
 
-![c3_2_exit_pm](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/c3_b2.png)
+![c3_2_exit_pm](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/b/c3_b2.png)
 
 
 
@@ -176,5 +176,35 @@ bochs
 
 代码调用关系图。
 
-![c3_3_code_call_rel](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/c3_c1.png)
+![c3_3_code_call_rel](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/c/c3_c1.png)
+
+
+## part c1: 修改LDT表
+
+主要是在LDT表中，增加数据段，堆栈段，整体上是模仿实模式下的32位相关段。
+代码段也是模仿32位GDT下的代码段。
+
+在LDT下，代码段中，加载数据段和堆栈段，然后从数据段读取数据显示到GDT下的显存段。
+编译过程类似上面的步骤。整理如下：
+
+
+```bash
+# compile
+nasm pmtest3a.asm  -o pmtest3a.com
+
+# copy to pm.img
+sudo mount -o loop pm.img  /mnt/floppy
+sudo cp pmtest3a.com   /mnt/floppy
+sudo umount  /mnt/floppy
+
+# run 
+bochs
+
+```
+
+运行结果
+
+![c3_3_ldt](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/c/c3_c2_ldt_more.png)
+
+
 
