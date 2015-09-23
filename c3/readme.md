@@ -136,3 +136,45 @@ b:\pmtest2.com
 ![c3_2_exit_pm](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/c3_b2.png)
 
 
+
+
+##  part c: LDT表
+准备环境。
+```bash
+cd orangeS/c3/ && mkdir c/ && cd c/
+
+ln -snf ../b/bochsrc  ./
+ln -snf ../b/freedos.img ./freedos.img
+ln -snf ../b/pm.img  ./pm.img
+ln -snf ../b/pm.inc  ./pm.inc
+
+
+ls -l
+# bochsrc -> ../b/bochsrc
+# freedos.img -> ../b/freedos.img
+# pm.img -> ../b/pm.img
+# pm.inc -> ../b/pm.inc
+
+# copy pmtest3.com from src
+```
+
+运行
+
+```bash
+# compile
+nasm pmtest3.asm  -o pmtest3.com
+
+# copy to pm.img
+sudo mount -o loop pm.img  /mnt/floppy
+sudo cp pmtest3.com   /mnt/floppy
+sudo umount  /mnt/floppy
+
+# run as c3/b/
+bochs
+
+```
+
+代码调用关系图。
+
+![c3_3_code_call_rel](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/c3_c1.png)
+
