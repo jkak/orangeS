@@ -247,7 +247,7 @@ bochs
 
 增加一个调用门的基本步骤，以及各段程序之间的调用过程。
 
-![c3_3_ldt](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/d/c3_d1_Gate.png)
+![c3_d1_gate](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/d/c3_d1_Gate.png)
 
 
 
@@ -255,10 +255,56 @@ bochs
 
 特权级转换时的检查规则，以及相应特权级堆栈间切换的示意图。
 
-![c3_3_ldt](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/d/c3_d2_PL.png)
+![c3_d2_pl](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/d/c3_d2_PL.png)
 
 
 
-##  part e: 特权级转移之进入ring3
+##  part e1: 特权级转移之进入ring3
+
+准备环境。
+
+```bash
+cd orangeS/c3/ && mkdir e/ && cd e/
+
+ln -snf ../b/bochsrc  ./
+ln -snf ../b/freedos.img ./freedos.img
+ln -snf ../b/pm.img  ./pm.img
+ln -snf ../b/pm.inc  ./pm.inc
+
+
+ls -l
+# bochsrc -> ../b/bochsrc
+# freedos.img -> ../b/freedos.img
+# pm.img -> ../b/pm.img
+# pm.inc -> ../b/pm.inc
+
+# copy pmtest5a.asm from src/chapter3/d/pmtest5a.asm
+```
+
+
+运行
+
+```bash
+# compile
+nasm pmtest5a.asm  -o pmtest5a.com
+
+# copy to pm.img
+sudo mount -o loop pm.img   /mnt/floppy
+sudo cp pmtest5a.com        /mnt/floppy
+sudo umount  /mnt/floppy
+
+# run as c3/c/
+bochs
+
+```
+注意，在运行bochs之前，一定要umount掉floppy。不然启动之后，
+在软驱中可能运行pm.img中的程序不正常。
+
+运行结果：
+
+![c3_e_5a](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/e/c3_ea.png)
+
+
+
 
 
