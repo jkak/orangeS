@@ -268,15 +268,19 @@ SA_TIL		EQU	4	; ┛
 ;
 ; 门
 ; usage: Gate Selector, Offset, DCount, Attr
-;        Selector:  dw
-;        Offset:    dd
-;        DCount:    db
-;        Attr:      db
+;             $1 Selector:  dw
+;             $2 Offset:    dd
+;             $3 DCount:    db
+;             $4 Attr:      db
 %macro Gate 4
-	dw	(%2 & 0FFFFh)				; 偏移1
-	dw	%1					; 选择子
-	dw	(%3 & 1Fh) | ((%4 << 8) & 0FF00h)	; 属性
-	dw	((%2 >> 16) & 0FFFFh)			; 偏移2
+	dw	(%2 & 0FFFFh)           ; 偏移1  byte 1-0
+	dw	%1                      ; 选择子 byte 3-2
+
+	dw	(%3 & 1Fh) | ((%4 << 8) & 0FF00h)  
+        ; 处理 %3 部分, 本DW的低字节 ->  byte 4
+        ; 处理 %4 部分，本DW的高字节 ->  byte 5
+
+	dw	((%2 >> 16) & 0FFFFh)	; 偏移2  byte 7-6
 %endmacro ; 共 8 字节
 
 ; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

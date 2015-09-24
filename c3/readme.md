@@ -155,7 +155,7 @@ ls -l
 # pm.img -> ../b/pm.img
 # pm.inc -> ../b/pm.inc
 
-# copy pmtest3.com from src
+# copy pmtest3.asm from src
 ```
 
 运行
@@ -206,5 +206,43 @@ bochs
 
 ![c3_3_ldt](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/c/c3_c2_ldt_more.png)
 
+
+
+##  part d: 特权级转移
+
+准备环境。
+```bash
+cd orangeS/c3/ && mkdir d/ && cd d/
+
+ln -snf ../b/bochsrc  ./
+ln -snf ../b/freedos.img ./freedos.img
+ln -snf ../b/pm.img  ./pm.img
+ln -snf ../b/pm.inc  ./pm.inc
+
+
+ls -l
+# bochsrc -> ../b/bochsrc
+# freedos.img -> ../b/freedos.img
+# pm.img -> ../b/pm.img
+# pm.inc -> ../b/pm.inc
+
+# copy pmtest4.asm from src/chapter3/d/pmtest4.asm
+```
+
+运行
+
+```bash
+# compile
+nasm pmtest4.asm  -o pmtest4.com
+
+# copy to pm.img
+sudo mount -o loop pm.img   /mnt/floppy
+sudo cp pmtest4.com         /mnt/floppy
+sudo umount  /mnt/floppy
+
+# run as c3/c/
+bochs
+
+```
 
 
