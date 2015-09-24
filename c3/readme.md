@@ -208,7 +208,7 @@ bochs
 
 
 
-##  part d: 特权级转移
+##  part d: 特权级之调用门
 
 准备环境。
 ```bash
@@ -244,5 +244,21 @@ sudo umount  /mnt/floppy
 bochs
 
 ```
+
+增加一个调用门的基本步骤，以及各段程序之间的调用过程。
+
+![c3_3_ldt](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/d/c3_d1_Gate.png)
+
+
+
+##  part d: 特权级转移之理论篇
+
+特权级转换时的检查规则，以及相应特权级堆栈间切换的示意图。
+
+![c3_3_ldt](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/d/c3_d2_PL.png)
+
+
+
+##  part e: 特权级转移之进入ring3
 
 
