@@ -340,3 +340,42 @@ bochs
 ![c3_e5_rel](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/e/c3_e5_rel.png)
 
 
+##  part f1: 启动页式内存管理
+
+直接将线性地址空间完全连续映射到页空间。准备环境如下。
+
+```bash
+cd orangeS/c3/ && mkdir f/ && cd f/
+
+ln -snf ../b/bochsrc  ./
+ln -snf ../b/freedos.img ./freedos.img
+ln -snf ../b/pm.img  ./pm.img
+
+ls -l
+# bochsrc -> ../b/bochsrc
+# freedos.img -> ../b/freedos.img
+# pm.img -> ../b/pm.img
+
+# copy pmtest6.asm from src/chapter3/f/pmtest6.asm
+# copy pm.inc      from src/chapter3/f/pm.inc
+#  因为增加了页属性
+
+```
+
+运行
+
+```bash
+# compile
+nasm pmtest6.asm  -o pmtest6.com
+
+# copy to pm.img
+sudo mount -o loop pm.img   /mnt/floppy
+sudo cp pmtest6.com         /mnt/floppy
+sudo umount  /mnt/floppy
+
+bochs
+```
+
+
+
+
