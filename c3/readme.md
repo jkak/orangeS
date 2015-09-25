@@ -302,9 +302,41 @@ bochs
 
 运行结果：
 
-![c3_e_5a](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/e/c3_ea.png)
+![c3_ea](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/e/c3_ea.png)
 
 
 
+##  part e2: 特权级转移实践
+
+copy pmtest5c.com,然后运行
+
+```bash
+# compile
+nasm pmtest5c.asm  -o pmtest5c.com
+
+# copy to pm.img
+sudo mount -o loop pm.img   /mnt/floppy
+sudo cp pmtest5c.com        /mnt/floppy
+sudo umount  /mnt/floppy
+
+# run as c3/c/
+bochs
+
+```
+此时已经可以显示C和3。
+
+再增加从局部任务返回实模式代码。通过pmtest5.com返回。编译类似上述5c.asm。
+执行效果如下。
+
+
+![c3_e5](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/e/c3_e5.png)
+
+此处不明白之处是，ltr加载的TSS，按理应该是属于当前32位保护代码的TSS。
+然后通过压栈进入到ring3的。从程序运行来说，这个TSS却是ring3程序的。
+通过这个TSS来使用调用门，以达到切换到0号特权栈。
+
+程序调用关系如下。
+
+![c3_e5_rel](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/e/c3_e5_rel.png)
 
 
