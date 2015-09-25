@@ -378,4 +378,42 @@ bochs
 
 
 
+##  part g1: 克勤克俭用内存
+
+准备环境如下。
+
+```bash
+cd orangeS/c3/ && mkdir g/ && cd g/
+
+ln -snf ../b/bochsrc  ./
+ln -snf ../b/freedos.img ./freedos.img
+ln -snf ../b/pm.img  ./pm.img
+
+ls -l
+# bochsrc -> ../b/bochsrc
+# freedos.img -> ../b/freedos.img
+# pm.img -> ../b/pm.img
+
+# copy pmtest7.asm from src/chapter3/g/pmtest7.asm
+# copy lib.inc     from src/chapter3/g/lib.inc
+# copy pm.inc      from src/chapter3/g/pm.inc
+#  因为增加了flags相关说明。
+
+```
+
+运行
+
+```bash
+# compile
+nasm pmtest7.asm  -o pmtest7.com
+
+# copy to pm.img
+sudo mount -o loop pm.img   /mnt/floppy
+sudo cp pmtest7.com         /mnt/floppy
+sudo umount  /mnt/floppy
+
+bochs
+```
+
+
 
