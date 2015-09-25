@@ -415,5 +415,9 @@ sudo umount  /mnt/floppy
 bochs
 ```
 
+程序执行结果。
+
+![c3_g1_mem](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/g/c3_g1_mem.png)
+
 
 
