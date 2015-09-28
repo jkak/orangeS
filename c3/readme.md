@@ -394,3 +394,44 @@ bochs
 
 
 
+##  part h: 进一步体会分页机制
+
+准备环境如下。
+
+```bash
+cd orangeS/c3/ && mkdir h/ && cd h/
+
+ln -snf ../b/bochsrc  ./
+ln -snf ../b/freedos.img ./freedos.img
+ln -snf ../b/makefile    ./
+ln -snf ../b/pm.img  ./pm.img
+# pm.inc from g
+ln -snf ../g/pm.inc  ./pm.inc
+
+ls -l
+# bochsrc -> ../b/bochsrc
+# freedos.img -> ../b/freedos.img
+# makefile -> ../b/makefile
+# pm.img -> ../b/pm.img
+# pm.inc -> ../b/pm.inc
+
+# copy pmtest8.asm from src/chapter3/h/pmtest8.asm
+# copy lib.inc     from src/chapter3/h/lib.inc
+
+```
+
+运行
+
+```bash
+# compile
+make src=pmtest8.asm  
+
+bochs
+```
+
+程序执行结果。
+
+![c3_h1](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/h/c3_h1.png)
+
+
+
