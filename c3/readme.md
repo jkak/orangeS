@@ -458,7 +458,7 @@ ls -l
 # pm.img -> ../b/pm.img
 # pm.inc -> ../g/pm.inc
 
-# copy pmtest9c.asm from src/chapter3/h/pmtest9c.asm
+# copy pmtest9c.asm from src/chapter3/i/pmtest9c.asm
 
 ```
 
@@ -475,5 +475,22 @@ bochs
 
 ![c2_i1_int](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/i/c3_i1_int.png)
 
+
+
+##  part i2: 中断和异常机制，时钟中断
+
+运行命令:
+```bash
+
+# copy pmtest9.asm from src/chapter3/i/pmtest9.asm
+
+# compile
+make src=pmtest9.asm  
+
+bochs
+```
+
+关于中断与陷阱，需要注意两者有个细微的差别。中断时复位掉IF标志，以免中断被打断而引起嵌套。
+而陷阱却不会影响IF标志。
 
 
