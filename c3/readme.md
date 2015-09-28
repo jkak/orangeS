@@ -47,12 +47,10 @@ vim bochsrc
 
 ```bash
 cd c3/b/
-nasm  pmtest1b.asm  -o pmtest1b.com
 
-# copy pmtest1b.com to pm.img
-sudo mount -o loop pm.img  /mnt/floppy
-sudo cp pmtest1b.com  /mnt/floppy/
-sudo umount   /mnt/floppy/
+# 对asm文件的编译，以及copy到pm.img操作
+# 都统一放在makefile中完成
+make src=pmtest1b.asm
 
 bochs
 # 启动后，进入freedos，即进入A盘。
@@ -116,12 +114,7 @@ GDT表，及段式线性地址转换示意图。
 编译与执行：
 ```bash
 # compile
-nasm pmtest2.asm  -o pmtest2.com
-
-# copy to pm.img
-sudo mount -o loop pm.img  /mnt/floppy
-sudo cp pmtest2.com   /mnt/floppy
-sudo umount  /mnt/floppy
+make src=pmtest2.asm
 
 # run
 bochs
@@ -144,7 +137,8 @@ b:\pmtest2.com
 cd orangeS/c3/ && mkdir c/ && cd c/
 
 ln -snf ../b/bochsrc  ./
-ln -snf ../b/freedos.img ./freedos.img
+ln -snf ../b/freedos.img ./
+ln -snf ../b/makefile    ./
 ln -snf ../b/pm.img  ./pm.img
 ln -snf ../b/pm.inc  ./pm.inc
 
@@ -152,6 +146,7 @@ ln -snf ../b/pm.inc  ./pm.inc
 ls -l
 # bochsrc -> ../b/bochsrc
 # freedos.img -> ../b/freedos.img
+# makefile -> ../b/makefile
 # pm.img -> ../b/pm.img
 # pm.inc -> ../b/pm.inc
 
@@ -162,12 +157,7 @@ ls -l
 
 ```bash
 # compile
-nasm pmtest3.asm  -o pmtest3.com
-
-# copy to pm.img
-sudo mount -o loop pm.img  /mnt/floppy
-sudo cp pmtest3.com   /mnt/floppy
-sudo umount  /mnt/floppy
+make src=pmtest3.com   
 
 # run as c3/b/
 bochs
@@ -190,12 +180,7 @@ bochs
 
 ```bash
 # compile
-nasm pmtest3a.asm  -o pmtest3a.com
-
-# copy to pm.img
-sudo mount -o loop pm.img  /mnt/floppy
-sudo cp pmtest3a.com   /mnt/floppy
-sudo umount  /mnt/floppy
+make src=pmtest3a.com   
 
 # run 
 bochs
@@ -216,6 +201,7 @@ cd orangeS/c3/ && mkdir d/ && cd d/
 
 ln -snf ../b/bochsrc  ./
 ln -snf ../b/freedos.img ./freedos.img
+ln -snf ../b/makefile    ./
 ln -snf ../b/pm.img  ./pm.img
 ln -snf ../b/pm.inc  ./pm.inc
 
@@ -223,6 +209,7 @@ ln -snf ../b/pm.inc  ./pm.inc
 ls -l
 # bochsrc -> ../b/bochsrc
 # freedos.img -> ../b/freedos.img
+# makefile -> ../b/makefile
 # pm.img -> ../b/pm.img
 # pm.inc -> ../b/pm.inc
 
@@ -268,6 +255,7 @@ cd orangeS/c3/ && mkdir e/ && cd e/
 
 ln -snf ../b/bochsrc  ./
 ln -snf ../b/freedos.img ./freedos.img
+ln -snf ../b/makefile    ./
 ln -snf ../b/pm.img  ./pm.img
 ln -snf ../b/pm.inc  ./pm.inc
 
@@ -275,6 +263,7 @@ ln -snf ../b/pm.inc  ./pm.inc
 ls -l
 # bochsrc -> ../b/bochsrc
 # freedos.img -> ../b/freedos.img
+# makefile -> ../b/makefile
 # pm.img -> ../b/pm.img
 # pm.inc -> ../b/pm.inc
 
@@ -286,12 +275,7 @@ ls -l
 
 ```bash
 # compile
-nasm pmtest5a.asm  -o pmtest5a.com
-
-# copy to pm.img
-sudo mount -o loop pm.img   /mnt/floppy
-sudo cp pmtest5a.com        /mnt/floppy
-sudo umount  /mnt/floppy
+make src=pmtest5a.asm
 
 # run as c3/c/
 bochs
@@ -312,12 +296,7 @@ copy pmtest5c.com,然后运行
 
 ```bash
 # compile
-nasm pmtest5c.asm  -o pmtest5c.com
-
-# copy to pm.img
-sudo mount -o loop pm.img   /mnt/floppy
-sudo cp pmtest5c.com        /mnt/floppy
-sudo umount  /mnt/floppy
+make src=pmtest5c.asm
 
 # run as c3/c/
 bochs
@@ -349,11 +328,13 @@ cd orangeS/c3/ && mkdir f/ && cd f/
 
 ln -snf ../b/bochsrc  ./
 ln -snf ../b/freedos.img ./freedos.img
+ln -snf ../b/makefile    ./
 ln -snf ../b/pm.img  ./pm.img
 
 ls -l
 # bochsrc -> ../b/bochsrc
 # freedos.img -> ../b/freedos.img
+# makefile -> ../b/makefile
 # pm.img -> ../b/pm.img
 
 # copy pmtest6.asm from src/chapter3/f/pmtest6.asm
@@ -366,12 +347,7 @@ ls -l
 
 ```bash
 # compile
-nasm pmtest6.asm  -o pmtest6.com
-
-# copy to pm.img
-sudo mount -o loop pm.img   /mnt/floppy
-sudo cp pmtest6.com         /mnt/floppy
-sudo umount  /mnt/floppy
+make src=pmtest6.asm  
 
 bochs
 ```
@@ -387,11 +363,13 @@ cd orangeS/c3/ && mkdir g/ && cd g/
 
 ln -snf ../b/bochsrc  ./
 ln -snf ../b/freedos.img ./freedos.img
+ln -snf ../b/makefile    ./
 ln -snf ../b/pm.img  ./pm.img
 
 ls -l
 # bochsrc -> ../b/bochsrc
 # freedos.img -> ../b/freedos.img
+# makefile -> ../b/makefile
 # pm.img -> ../b/pm.img
 
 # copy pmtest7.asm from src/chapter3/g/pmtest7.asm
@@ -405,12 +383,7 @@ ls -l
 
 ```bash
 # compile
-nasm pmtest7.asm  -o pmtest7.com
-
-# copy to pm.img
-sudo mount -o loop pm.img   /mnt/floppy
-sudo cp pmtest7.com         /mnt/floppy
-sudo umount  /mnt/floppy
+make src=pmtest7.asm  
 
 bochs
 ```
