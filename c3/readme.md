@@ -413,7 +413,7 @@ ls -l
 # freedos.img -> ../b/freedos.img
 # makefile -> ../b/makefile
 # pm.img -> ../b/pm.img
-# pm.inc -> ../b/pm.inc
+# pm.inc -> ../g/pm.inc
 
 # copy pmtest8.asm from src/chapter3/h/pmtest8.asm
 # copy lib.inc     from src/chapter3/h/lib.inc
@@ -432,6 +432,48 @@ bochs
 程序执行结果。
 
 ![c3_h1](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/h/c3_h1.png)
+
+
+
+##  part i1: 中断和异常机制，实现一个中断
+
+省略pmtest9a.asm和pmtest9b.asm程序。仅操作pmtest9c.asm。
+准备环境如下。
+
+```bash
+cd orangeS/c3/ && mkdir i/ && cd i/
+
+ln -snf ../b/bochsrc  ./
+ln -snf ../b/freedos.img ./freedos.img
+ln -snf ../b/makefile    ./
+ln -snf ../b/pm.img  ./pm.img
+ln -snf ../g/pm.inc  ./pm.inc
+ln -snf ../h/lib.inc ./lib.inc
+
+ls -l
+# bochsrc -> ../b/bochsrc
+# freedos.img -> ../b/freedos.img
+# makefile -> ../b/makefile
+# lib.inc  -> ../h/lib.inc
+# pm.img -> ../b/pm.img
+# pm.inc -> ../g/pm.inc
+
+# copy pmtest9c.asm from src/chapter3/h/pmtest9c.asm
+
+```
+
+运行
+
+```bash
+# compile
+make src=pmtest9c.asm  
+
+bochs
+```
+
+中断门，陷阱门与中断8259A连接图。
+
+![c2_i1_int](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/i/c3_i1_int.png)
 
 
 
