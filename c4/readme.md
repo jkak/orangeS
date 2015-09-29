@@ -19,6 +19,7 @@ bochs
 ```
 
 运行结果：
+
 ![c4_a_boot](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c4/a/c4_a_boot.png)
 
 
@@ -53,6 +54,7 @@ bochs
 ```
 
 运行结果：
+
 ![c4_b_loader](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c4/b/c4_b_loader.png)
 
 
