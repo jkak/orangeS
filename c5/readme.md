@@ -147,3 +147,28 @@ typedef struc {
 
 
 
+
+## part c: load ELF
+
+```bash
+mkdir c4/c/ && cd c4/c/
+# copy file from chapter5/c/
+
+make 
+
+bochs
+
+
+```
+主要是增加loader.asm程序，其作用和boot.asm相似，用于加载kernel.asm文件。
+其效果是如图5-5，输出两次Booting. Ready.
+
+
+
+
+
+
+
+                              
+                             
+
