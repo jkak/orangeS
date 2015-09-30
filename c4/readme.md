@@ -87,6 +87,10 @@ bochs
 
 ```
 
+getFATEntry函数的流程图。
+
+![c4_c2_getfatentry](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c4/c/c4_c2_getFATEntry.png)
+
 运行结果：
 
 ![c4_c1_loader](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c4/c/c4_c1_loader.png)
