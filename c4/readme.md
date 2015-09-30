@@ -24,7 +24,7 @@ bochs
 
 
 
-## part b: load Loader
+## part b: search Loader
 
 ```bash
 
@@ -59,5 +59,34 @@ bochs
 运行结果：
 
 ![c4_b_loader](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c4/b/c4_b_loader.png)
+
+
+
+## part c: load Loader
+
+```bash
+
+mkdir c4/c/ && cd c4/c/
+
+ln -snf ../fat12/pm.img .
+ln -snf ../b/bochsrc    .
+ln -snf ../b/makefile   .
+
+# copy boot.asm, loader.asm makefile from chapter4/c/
+# 注意，此处源代码在编译时，有两处都存在一行代码被丢弃掉了。
+# 已经在该行后注释NOTE，并且其前后数行全部重新录入了。
+# 导致对dispStr和重复读取fatentry相关代码做过单步调试。
+# 具体包括: LABEL_GOON_LOADING_FILE标签下数行，以及DispStr函数
+
+make 
+
+bochs
+# 因为修改了bochsrc文件，直接从pm.img启动，
+
+```
+
+运行结果：
+
+![c4_c1_loader](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c4/c/c4_c1_loader.png)
 
 
