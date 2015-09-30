@@ -33,12 +33,14 @@ mkdir c4/b/ && cd c4/b/
 ln -snf ../fat12/pm.img .
 cp ../a/bochsrc     .
 # 修改bochsrc文件，交换floppya与floppyb，使得从pm.img直接启动
+```
 
-# copy boot.asm, loader.asm makefile from chapter4/b/
-# 其中，搜索loader.bin文件的函数流程图如下：
+copy boot.asm, loader.asm makefile from chapter4/b/
+其中，搜索loader.bin文件的函数流程图如下：
 
 ![c4_b_loader](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c4/b/c4_b1_searchLoader.png)
 
+```bash
 make 
 # 更新pm.img，且pm.img是基于../fat12/pm.img的。
 # 故该映像内除了make时中入的loader.bin外，之前已经有几个文件了。
