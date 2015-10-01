@@ -277,3 +277,8 @@ bochs
 
 ![c5_g1_gdt](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c5/g/c5_g_makefile.png)
 
+## part h: 中断和异常
+略。
+
+
+
