@@ -151,21 +151,37 @@ typedef struc {
 ## part c: load ELF
 
 ```bash
-mkdir c4/c/ && cd c4/c/
+mkdir c5/c/ && cd c5/c/
 # copy file from chapter5/c/
 
 make 
 
 bochs
 
-
 ```
 主要是增加loader.asm程序，其作用和boot.asm相似，用于加载kernel.asm文件。
 其效果是如图5-5，输出两次Booting. Ready.
 
 
+## part d: enter Protect Mode
+
+进入保护模式，打印内存信息，并启动分页功能。
 
 
+```bash
+mkdir c5/d/ && cd c5/d/
+# copy file from chapter5/d/
+# 新增加了lib.inc, loader.inc, pm.inc
+
+make 
+
+bochs
+
+```
+
+运行结果
+
+![c5_d1_pm](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c5/d/c5_d1.pm.png)
 
 
 
