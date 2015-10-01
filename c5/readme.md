@@ -237,10 +237,23 @@ bochs
 
 运行结果
 
-![c5_e1_pm](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c5/d/c5_e1_kernel.png)
+![c5_e1_pm](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c5/e/c5_e1_kernel.png)
 
 
                               
                              
+## part f: 切换堆栈和GDT
 
+```bash
+mkdir -p  c5/f/
+cd c5/f/
+
+# copy file from chapter5/f/
+
+./run.sh
+```
+
+运行结果
+
+![c5_f1_gdt](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c5/f/c5_f1_gdt.png)
 
