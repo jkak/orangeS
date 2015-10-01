@@ -96,8 +96,8 @@ typedef struct {
     elf32_half      e_ehsize;    # ELF Header size; 0034
     elf32_half      e_phentsize; # size of program header; 0020
     elf32_half      e_phnum;     #  num of program header; 0003
-    elf32_half      e_shentsize; # size of program header; 0028
-    elf32_half      e_shnum;     #  num of program header; 0007
+    elf32_half      e_shentsize; # size of section header; 0028
+    elf32_half      e_shnum;     #  num of section header; 0007
     elf32_half      e_shstrndx;  # section header name in which sec; 0006
 } elf32_ehdr;
 ```
@@ -140,10 +140,10 @@ typedef struc {
 | p_offset   |  0x0          |   0x0000016C  | 0x0           |
 | p_vaddr    |  0x08048000   |   0x0804916C  | 0x0           |
 | p_paddr    |  0x08048000   |   0x0804916C  | 0x0           |
-| e_ffilesz  |  0x0000016C   |   0x00000008  | 0x0           |
-| e_memsz    |  0x0000016C   |   0x00000008  | 0x0           |
-| e_flags    |  0x00000005   |   0x00000006  | 0x00000007    |
-| e_align    |  0x00001000   |   0x00001000  | 0x00001000    |
+| p_ffilesz  |  0x0000016C   |   0x00000008  | 0x0           |
+| p_memsz    |  0x0000016C   |   0x00000008  | 0x0           |
+| p_flags    |  0x00000005   |   0x00000006  | 0x00000007    |
+| p_align    |  0x00001000   |   0x00001000  | 0x00001000    |
 
 
 
@@ -181,10 +181,66 @@ bochs
 
 运行结果
 
-![c5_d1_pm](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c5/d/c5_d1.pm.png)
+![c5_d1_pm](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c5/d/c5_d1_pm.png)
 
+
+
+## part e: 重新放置内核
+
+
+```bash
+cd c5/
+cp -r d/ e
+
+# copy file from chapter5/e/
+# rm *png
+
+# check ELF header
+xxd -u  -a -g 1  -c 16 -l 34 kernel.bin 
+0000000: 7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00  .ELF............
+0000010: 02 00 03 00 01 00 00 00 00 04 03 00 34 00 00 00  ............4...
+0000020: 20 04 00 00 00 00 00 00 34 00 20 00 01 00 28 00   .......4. ...(.
+0000030: 03 00 02 00
+
+# check program header 0
+xxd  -a -g 1 -s 0x34 -l 0x20 kernel.bin
+0000034: 01 00 00 00 00 00 00 00 00 00 03 00 00 00 03 00  ................
+0000044: 0d 04 00 00 0d 04 00 00 05 00 00 00 00 10 00 00  ................
+
+# all about kernel
+xxd  -a -g 1 kernel.bin
+0000000: 7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00  .ELF............
+...
+0000060: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+*
+0000400: b4 0f b0 4b 65 66 a3 ee 00 00 00 eb fe 00 2e 73  ...Kef.........s
+...
+0000490: 01 00 00 00 00 00 00 00                          ........
+```
+
+根据书上步骤分析kernel.bin文件的elf格式。
+文件前52(0x34h)个字节是elf头，
+之后32(0x20)个字节是program header 0的头，这部分只有一项，
+再之后是空了很大一段，直到0x30400做为入口地址，才开始放置真正的代码。
+
+1056(0x420h)字节开始是3个section table.每个表长0x28字节。分别是：
+0x420-0x447h, 0x448h-0x469h, 0x470h-0x497h。
+这些信息也可以通过readelf命令来读取.
+
+```bash
+
+make 
+
+bochs
+
+```
+
+运行结果
+
+![c5_e1_pm](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c5/d/c5_e1_kernel.png)
 
 
                               
                              
+
 
