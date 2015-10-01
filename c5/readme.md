@@ -281,4 +281,22 @@ bochs
 略。
 
 
+## part i: 响应硬件中断
+
+```bash
+mkdir -p  c5/i/
+cd c5/i/
+
+# copy file from chapter5/i/
+
+make image
+
+bochs
+
+```
+
+运行结果
+
+![c5_i_gdt](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c5/i/c5_i_makefile.png)
+
 
