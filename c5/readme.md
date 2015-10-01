@@ -257,3 +257,23 @@ cd c5/f/
 
 ![c5_f1_gdt](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c5/f/c5_f1_gdt.png)
 
+
+
+## part g: 整理代码
+
+```bash
+mkdir -p  c5/g/
+cd c5/g/
+
+# copy file from chapter5/g/
+
+make image
+
+bochs
+
+```
+
+运行结果
+
+![c5_g1_gdt](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c5/g/c5_g_makefile.png)
+
