@@ -60,7 +60,7 @@ mkdir c6/c/ && cd c6/c/
 # modify lib/klib.c， 10 -> 100 in for
 # modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
 
-make final
+make stage3
 
 bochs
 
@@ -68,3 +68,21 @@ bochs
 
 这一部分改动比较小。
 
+
+## part d: prepare for multi-process
+
+
+```bash
+mkdir c6/d/ && cd c6/d/
+
+# copy files from chapter6/d/
+
+# update a.img bochsrc boot/include/pm.inc by c6/a/
+# modify lib/klib.c， 10 -> 100 in for
+# modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
+
+make image
+
+bochs
+
+```
