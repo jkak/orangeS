@@ -48,3 +48,23 @@ bochs
 此段重点要梳理清楚中断前后堆栈指针分别指向何处。
 
 
+## part c: 中断重入
+
+
+```bash
+mkdir c6/c/ && cd c6/c/
+
+# copy files from chapter6/c/
+
+# update a.img bochsrc boot/include/pm.inc by c6/a/
+# modify lib/klib.c， 10 -> 100 in for
+# modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
+
+make final
+
+bochs
+
+```
+
+这一部分改动比较小。
+
