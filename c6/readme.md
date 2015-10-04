@@ -182,4 +182,22 @@ bochs
 
 ```
 
+## part l: add black int 0x90 system call
+
+省略中间的i, j两个部分。
+
+```bash
+mkdir c6/l/ && cd c6/l/
+
+# copy files from chapter6/l/
+
+# update a.img bochsrc boot/include/pm.inc by c6/a/
+# modify lib/klib.c， 10 -> 100 in for
+# modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
+
+make image
+
+bochs
+
+```
 
