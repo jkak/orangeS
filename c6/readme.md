@@ -201,3 +201,22 @@ bochs
 
 ```
 
+## part n: milli_delay 
+
+省略中间的m部分。
+
+```bash
+mkdir c6/n/ && cd c6/n/
+
+# copy files from chapter6/n/
+
+# update a.img bochsrc boot/include/pm.inc by c6/a/
+# modify lib/klib.c， 10 -> 100 in for
+# modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
+
+make image
+
+bochs
+
+```
+
