@@ -127,7 +127,7 @@ bochs
 ```
 
 
-## part g: summary of multi-process(add TestC)
+## part g: modify hwint00 handler
 
 ```bash
 mkdir c6/g/ && cd c6/g/
@@ -146,7 +146,7 @@ bochs
 
 
 
-## part h: summary of multi-process(add TestC)
+## part h: separate restart() from hwint00 handler
 
 ```bash
 mkdir c6/h/ && cd c6/h/
@@ -162,4 +162,24 @@ make image
 bochs
 
 ```
+
+## part k: finish reorganize hwint00 handler
+
+省略中间的i, j两个部分。
+
+```bash
+mkdir c6/k/ && cd c6/k/
+
+# copy files from chapter6/k/
+
+# update a.img bochsrc boot/include/pm.inc by c6/a/
+# modify lib/klib.c， 10 -> 100 in for
+# modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
+
+make image
+
+bochs
+
+```
+
 
