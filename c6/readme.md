@@ -108,7 +108,7 @@ bochs
 
 
 
-## part e: summary of multi-process(add TestC)
+## part f: summary of multi-process(add TestC)
 
 
 ```bash
@@ -125,3 +125,23 @@ make image
 bochs
 
 ```
+
+
+## part e: summary of multi-process(add TestC)
+
+```bash
+mkdir c6/g/ && cd c6/g/
+
+# copy files from chapter6/g/
+
+# update a.img bochsrc boot/include/pm.inc by c6/a/
+# modify lib/klib.c， 10 -> 100 in for
+# modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
+
+make image
+
+bochs
+
+```
+
+
