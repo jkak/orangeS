@@ -86,3 +86,22 @@ make image
 bochs
 
 ```
+
+
+## part e: prepare for multi-process
+
+
+```bash
+mkdir c6/e/ && cd c6/e/
+
+# copy files from chapter6/e/
+
+# update a.img bochsrc boot/include/pm.inc by c6/a/
+# modify lib/klib.c， 10 -> 100 in for
+# modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
+
+make image
+
+bochs
+
+```
