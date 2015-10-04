@@ -220,3 +220,20 @@ bochs
 
 ```
 
+## part o:
+
+
+```bash
+mkdir c6/o/ && cd c6/o/
+
+# copy files from chapter6/o/
+
+# update a.img bochsrc boot/include/pm.inc by c6/a/
+# modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
+
+make image
+
+bochs
+
+```
+
