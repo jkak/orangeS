@@ -254,3 +254,21 @@ bochs
 
 ```
 
+## part r: finish schedule()
+
+省略中间的q部分。至此完成简单的优先级调度。
+
+```bash
+mkdir c6/r/ && cd c6/r/
+
+# copy files from chapter6/r/
+
+# update a.img bochsrc boot/include/pm.inc by c6/a/
+# modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
+
+make image
+
+bochs
+
+```
+
