@@ -272,3 +272,13 @@ bochs
 
 ```
 
+第六章结束时，进程相关流程图及内存状态如下二图。
+
+内存分布图：
+
+![c6_r_mem](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c6/r/c6_r_mem_schedule.png)
+
+流程图：
+
+![c6_r_flow](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c6/r/c6_r_flow_schedule.png)
+
