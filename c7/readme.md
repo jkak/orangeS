@@ -102,3 +102,23 @@ bochs
 ```
 
 
+## part g: finish keyboard_read() to read from keyboard input
+
+```bash
+mkdir c7/g/ && cd c7/g/
+
+# copy files from chapter7/g/
+
+# update a.img bochsrc boot/include/pm.inc by c7/a/
+# modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
+# modify exec by a script
+
+make image
+
+bochs
+
+```
+需要注意的是，在最终可以处理输入字符前，又根据当前是否有按下ctrl, alt, shift等键，通过FLAG_SHIFT_L等bit位，或到32位的key中。以方便上层函数知晓输入附加情况。
+
+
+
