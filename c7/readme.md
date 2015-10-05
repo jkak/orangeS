@@ -50,3 +50,20 @@ bochs
 
 ```
 
+## part d: show char and num of keyboard input
+
+```bash
+mkdir c7/d/ && cd c7/d/
+
+# copy files from chapter7/d/
+
+# update a.img bochsrc boot/include/pm.inc by c7/a/
+# modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
+# modify exec by a script
+
+make image
+
+bochs
+
+```
+
