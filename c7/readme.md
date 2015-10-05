@@ -33,3 +33,20 @@ bochs
 
 ```
 
+## part c: keyboard_read() finished
+
+```bash
+mkdir c7/c/ && cd c7/c/
+
+# copy files from chapter7/c/
+
+# update a.img bochsrc boot/include/pm.inc by c7/a/
+# modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
+# modify exec by a script
+
+make image
+
+bochs
+
+```
+
