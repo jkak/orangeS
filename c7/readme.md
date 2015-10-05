@@ -84,3 +84,21 @@ bochs
 
 ```
 
+## part f: get PrintScreen and Pause from keyboard input
+
+```bash
+mkdir c7/f/ && cd c7/f/
+
+# copy files from chapter7/f/
+
+# update a.img bochsrc boot/include/pm.inc by c7/a/
+# modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
+# modify exec by a script
+
+make image
+
+bochs
+
+```
+
+
