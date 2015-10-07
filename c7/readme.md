@@ -158,3 +158,22 @@ bochs
 ```
 
 
+
+## part j: switch tty 
+
+```bash
+mkdir c7/j/ && cd c7/j/
+
+# copy files from chapter7/j/
+
+# update a.img bochsrc boot/include/pm.inc by c7/a/
+# modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
+# modify exec by a script
+
+make image
+
+bochs
+
+```
+
+
