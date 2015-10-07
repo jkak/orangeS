@@ -122,3 +122,19 @@ bochs
 
 
 
+## part h: begin VGA and tty
+
+```bash
+mkdir c7/h/ && cd c7/h/
+
+# copy files from chapter7/h/
+
+# update a.img bochsrc boot/include/pm.inc by c7/a/
+# modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
+# modify exec by a script
+
+make image
+
+bochs
+
+```
