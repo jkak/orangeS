@@ -177,3 +177,20 @@ bochs
 ```
 
 
+
+## part k: scroll screen switch tty 
+
+```bash
+mkdir c7/k/ && cd c7/k/
+
+# copy files from chapter7/k/
+
+# update a.img bochsrc boot/include/pm.inc by c7/a/
+# modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
+# modify exec by a script
+
+make image
+
+bochs
+
+```
