@@ -138,3 +138,23 @@ make image
 bochs
 
 ```
+
+
+## part i: finish VGA and tty Framework
+
+```bash
+mkdir c7/i/ && cd c7/i/
+
+# copy files from chapter7/i/
+
+# update a.img bochsrc boot/include/pm.inc by c7/a/
+# modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
+# modify exec by a script
+
+make image
+
+bochs
+
+```
+
+
