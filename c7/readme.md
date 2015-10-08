@@ -238,3 +238,24 @@ bochs
 ```
 
 
+
+## part n: process three *-Lock 
+
+```bash
+mkdir c7/n/ && cd c7/n/
+
+# copy files from chapter7/m/
+
+# update a.img bochsrc boot/include/pm.inc by c7/a/
+# modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
+# modify exec by a script
+# modify kernel/tty.c in_process() case F* use CTRL
+
+make image
+
+bochs
+
+```
+
+
+
