@@ -257,5 +257,10 @@ bochs
 
 ```
 
+tty与键盘输入示意图
+
+![c7_n](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c7/n/c7_n.png)
+
+
 
 
