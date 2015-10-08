@@ -94,8 +94,8 @@ PUBLIC void in_process(TTY* p_tty, u32 key)
 		case F10:
 		case F11:
 		case F12:
-			/* Alt + F1~F12 */
-			if ((key & FLAG_ALT_L) || (key & FLAG_ALT_R)) {
+			/* Ctrl + F1~F12 */
+			if ((key & FLAG_CTRL_L) || (key & FLAG_CTRL_R)) {
 				select_console(raw_code - F1);
 			}
 			break;
