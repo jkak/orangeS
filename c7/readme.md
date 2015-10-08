@@ -210,9 +210,31 @@ mkdir c7/l/ && cd c7/l/
 # update a.img bochsrc boot/include/pm.inc by c7/a/
 # modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
 # modify exec by a script
+# modify kernel/tty.c in_process() case F* use CTRL
 
 make image
 
 bochs
 
 ```
+
+
+## part m: process three *-Lock 
+
+```bash
+mkdir c7/m/ && cd c7/m/
+
+# copy files from chapter7/m/
+
+# update a.img bochsrc boot/include/pm.inc by c7/a/
+# modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
+# modify exec by a script
+# modify kernel/tty.c in_process() case F* use CTRL
+
+make image
+
+bochs
+
+```
+
+
