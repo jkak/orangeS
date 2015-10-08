@@ -200,3 +200,19 @@ bochs
 期间曾试图使用alt+F[5-7]，结果没有反应。原因未知。
 
 
+## part l: process ENTER and BACKSPACE
+
+```bash
+mkdir c7/l/ && cd c7/l/
+
+# copy files from chapter7/l/
+
+# update a.img bochsrc boot/include/pm.inc by c7/a/
+# modify Makefile, add -m32 for CFLAGS, -m elf_i386 for LDFLAGS
+# modify exec by a script
+
+make image
+
+bochs
+
+```
