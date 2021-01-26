@@ -181,7 +181,7 @@ bochs
 
 运行结果
 
-![c5_d1_pm](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c5/d/c5_d1_pm.png)
+![c5_d1_pm](https://raw.githubusercontent.com/jkak/orangeS/master/c5/d/c5_d1_pm.png)
 
 
 
@@ -237,7 +237,7 @@ bochs
 
 运行结果
 
-![c5_e1_pm](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c5/e/c5_e1_kernel.png)
+![c5_e1_pm](https://raw.githubusercontent.com/jkak/orangeS/master/c5/e/c5_e1_kernel.png)
 
 
                               
@@ -255,7 +255,7 @@ cd c5/f/
 
 运行结果
 
-![c5_f1_gdt](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c5/f/c5_f1_gdt.png)
+![c5_f1_gdt](https://raw.githubusercontent.com/jkak/orangeS/master/c5/f/c5_f1_gdt.png)
 
 
 
@@ -275,7 +275,7 @@ bochs
 
 运行结果
 
-![c5_g1_gdt](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c5/g/c5_g_makefile.png)
+![c5_g1_gdt](https://raw.githubusercontent.com/jkak/orangeS/master/c5/g/c5_g_makefile.png)
 
 ## part h: 中断和异常
 略。
@@ -297,6 +297,6 @@ bochs
 
 运行结果
 
-![c5_i_gdt](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c5/i/c5_i_makefile.png)
+![c5_i_gdt](https://raw.githubusercontent.com/jkak/orangeS/master/c5/i/c5_i_makefile.png)
 
 

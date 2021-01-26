@@ -99,7 +99,7 @@ file pm.img
 
 GDT表，及段式线性地址转换示意图。
 
-![c3_1_gdt](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/b/c3_b1.png)
+![c3_1_gdt](https://raw.githubusercontent.com/jkak/orangeS/master/c3/b/c3_b1.png)
 
 
 
@@ -126,7 +126,7 @@ b:\pmtest2.com
 
 ```
 
-![c3_2_exit_pm](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/b/c3_b2.png)
+![c3_2_exit_pm](https://raw.githubusercontent.com/jkak/orangeS/master/c3/b/c3_b2.png)
 
 
 
@@ -166,7 +166,7 @@ bochs
 
 代码调用关系图。
 
-![c3_3_code_call_rel](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/c/c3_c1.png)
+![c3_3_code_call_rel](https://raw.githubusercontent.com/jkak/orangeS/master/c3/c/c3_c1.png)
 
 
 ## part c1: 修改LDT表
@@ -189,7 +189,7 @@ bochs
 
 运行结果
 
-![c3_3_ldt](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/c/c3_c2_ldt_more.png)
+![c3_3_ldt](https://raw.githubusercontent.com/jkak/orangeS/master/c3/c/c3_c2_ldt_more.png)
 
 
 
@@ -234,7 +234,7 @@ bochs
 
 增加一个调用门的基本步骤，以及各段程序之间的调用过程。
 
-![c3_d1_gate](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/d/c3_d1_Gate.png)
+![c3_d1_gate](https://raw.githubusercontent.com/jkak/orangeS/master/c3/d/c3_d1_Gate.png)
 
 
 
@@ -242,7 +242,7 @@ bochs
 
 特权级转换时的检查规则，以及相应特权级堆栈间切换的示意图。
 
-![c3_d2_pl](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/d/c3_d2_PL.png)
+![c3_d2_pl](https://raw.githubusercontent.com/jkak/orangeS/master/c3/d/c3_d2_PL.png)
 
 
 
@@ -286,7 +286,7 @@ bochs
 
 运行结果：
 
-![c3_ea](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/e/c3_ea.png)
+![c3_ea](https://raw.githubusercontent.com/jkak/orangeS/master/c3/e/c3_ea.png)
 
 
 
@@ -308,7 +308,7 @@ bochs
 执行效果如下。
 
 
-![c3_e5](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/e/c3_e5.png)
+![c3_e5](https://raw.githubusercontent.com/jkak/orangeS/master/c3/e/c3_e5.png)
 
 此处不明白之处是，ltr加载的TSS，按理应该是属于当前32位保护代码的TSS。
 然后通过压栈进入到ring3的。从程序运行来说，这个TSS却是ring3程序的。
@@ -316,7 +316,7 @@ bochs
 
 程序调用关系如下。
 
-![c3_e5_rel](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/e/c3_e5_rel.png)
+![c3_e5_rel](https://raw.githubusercontent.com/jkak/orangeS/master/c3/e/c3_e5_rel.png)
 
 
 ##  part f1: 启动页式内存管理
@@ -390,7 +390,7 @@ bochs
 
 程序执行结果。
 
-![c3_g1_mem](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/g/c3_g1_mem.png)
+![c3_g1_mem](https://raw.githubusercontent.com/jkak/orangeS/master/c3/g/c3_g1_mem.png)
 
 
 
@@ -431,7 +431,7 @@ bochs
 
 程序执行结果。
 
-![c3_h1](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/h/c3_h1.png)
+![c3_h1](https://raw.githubusercontent.com/jkak/orangeS/master/c3/h/c3_h1.png)
 
 
 
@@ -473,7 +473,7 @@ bochs
 
 中断门，陷阱门与中断8259A连接图。
 
-![c2_i1_int](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c3/i/c3_i1_int.png)
+![c2_i1_int](https://raw.githubusercontent.com/jkak/orangeS/master/c3/i/c3_i1_int.png)
 
 
 

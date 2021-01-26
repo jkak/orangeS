@@ -20,7 +20,7 @@ bochs
 
 运行结果：
 
-![c4_a_boot](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c4/a/c4_a_boot.png)
+![c4_a_boot](https://raw.githubusercontent.com/jkak/orangeS/master/c4/a/c4_a_boot.png)
 
 
 
@@ -38,7 +38,7 @@ cp ../a/bochsrc     .
 copy boot.asm, loader.asm makefile from chapter4/b/
 其中，搜索loader.bin文件的函数流程图如下：
 
-![c4_b_loader](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c4/b/c4_b1_searchLoader.png)
+![c4_b_loader](https://raw.githubusercontent.com/jkak/orangeS/master/c4/b/c4_b1_searchLoader.png)
 
 ```bash
 make 
@@ -60,7 +60,7 @@ bochs
 
 运行结果：
 
-![c4_b_loader](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c4/b/c4_b_loader.png)
+![c4_b_loader](https://raw.githubusercontent.com/jkak/orangeS/master/c4/b/c4_b_loader.png)
 
 
 
@@ -89,10 +89,10 @@ bochs
 
 getFATEntry函数的流程图。
 
-![c4_c2_getfatentry](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c4/c/c4_c2_getFATEntry.png)
+![c4_c2_getfatentry](https://raw.githubusercontent.com/jkak/orangeS/master/c4/c/c4_c2_getFATEntry.png)
 
 运行结果：
 
-![c4_c1_loader](https://raw.githubusercontent.com/jungle85gopy/orangeS/master/c4/c/c4_c1_loader.png)
+![c4_c1_loader](https://raw.githubusercontent.com/jkak/orangeS/master/c4/c/c4_c1_loader.png)
 
 
